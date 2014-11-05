@@ -18,7 +18,8 @@
     "require-cs": "~0.4.4",
     "jquery": "1.9.0",
     "bootstrap": "3.2",
-    "backbone.localStorage": "1.1.7"
+    "backbone.localStorage": "1.1.7",
+    "q": "1"
   },
   "resolutions": {
     "underscore": "1.6.0"

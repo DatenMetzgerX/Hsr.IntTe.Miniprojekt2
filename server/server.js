@@ -76,7 +76,7 @@ app.get('/login', function (req, res) {
 });
  
  app.post('/login', function (req, res) {
-    var post = req.body;  
+    var post = req.body;
 	var user = findUser(post.name);	 
 	if( !!user && post.password == user.password)
 	{		
@@ -87,7 +87,7 @@ app.get('/login', function (req, res) {
 	res.json(false);
 });
 
- app.post('/register', function(req, res) {
+ app.post('/users', function(req, res) {
      var post = req.body;
      
      if (typeof(post.name) != "string" || typeof(post.password) != "string") {
@@ -99,8 +99,9 @@ app.get('/login', function (req, res) {
          res.json(false);
          return;
      }
-     users.push(new User(users.length, post.name, post.password));
-     res.json(true);
+     var user = new User(users.length, post.name, post.password);
+     users.push(user);
+     res.json(user);
  });
  
  app.get('/users', function (req, res) {
@@ -173,7 +174,7 @@ app.post('/logout', function (req, res) {
 app.use('/', express.static(__dirname + '/public/'));
 
 //socket:
-io = io.listen(app.listen(process.env.PORT || 4730));
+io = io.listen(app.listen(process.env.PORT || 8888));
 
 io.sockets.on('connection', function (socket) {
     socket.emit('message', { action: 'connected' });
