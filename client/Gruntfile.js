@@ -49,7 +49,8 @@ module.exports = function(grunt) {
       },
       output: {
         js: 'public/js',
-        css: 'public/css'
+        css: 'public/css',
+        fonts: 'public/fonts'
       },
       js: 'js',
       css: 'css',
