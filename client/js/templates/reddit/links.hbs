@@ -1,9 +1,14 @@
 <h1>Here we are</h1>
 
-{{#collection}}
-  <a href="{{./url}}" target="_blank">{{title}} - {{author}}</a>
+{{#collection tagName="ul" class="media-list" item-context="linkContext"}}
+	<li class="media">
+		<div class="pull-left text-center">
+			Voting
+		</div>
+		<div class="media-body">
+			<h4 class="media-heading"><a href="{{./url}}" target="_blank">{{title}}</a></h4>
 
-  {{#collection comments}}
-    {{text}}
-  {{/collection}}
+        {{view commentsView}}
+		</div>
+	</li>
 {{/collection}}

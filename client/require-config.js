@@ -46,7 +46,8 @@ require.config({
     'cs': pathPrefix + 'bower_components/require-cs/cs',
     'text': pathPrefix + 'bower_components/text/text',
     'hbs': pathPrefix + 'bower_components/requirejs-hbs/hbs',
-    'localstorage': pathPrefix + 'bower_components/backbone.localStorage/backbone.localStorage'
+    'localstorage': pathPrefix + 'bower_components/backbone.localStorage/backbone.localStorage',
+    'q': pathPrefix + 'bower_components/q/q'
   },
   shim: {
     'handlebars': {
