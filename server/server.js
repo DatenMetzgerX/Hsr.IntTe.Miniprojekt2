@@ -114,28 +114,28 @@ app.get('/login', function (req, res) {
 });
 
 
-app.post('/entry', function(req, res) {
+app.post('/entries', function(req, res) {
     var newLink = new Link(entries.length, req.body.title, users[req.session.user_id].name, req.body.url);	
  	entries.push(newLink);
  	res.json(newLink);
  	io.sockets.emit('message', { action: "AddLink" });
 });
 
-app.get('/entry/:id', function(req, res) {
+app.get('/entries/:id', function(req, res) {
    returnIndex(res,  req.params.id, entries);
 });
 
-app.post('/entry/:id/up', checkAuth, function (req, res) {
+app.post('/entries/:id/up', checkAuth, function (req, res) {
     res.json(entries[req.params.id].rating._up(req.session.user_id));
     io.sockets.emit('message', { action: "Rated" });
 });
 
-app.post('/entry/:id/down', checkAuth, function (req, res) {
+app.post('/entries/:id/down', checkAuth, function (req, res) {
     res.json(entries[req.params.id].rating._down(req.session.user_id));
     io.sockets.emit('message', { action: "Rated" });
 });
 
-app.post('/entry/:id/comment', checkAuth, function (req, res) {
+app.post('/entries/:id/comment', checkAuth, function (req, res) {
     var newComment = new Comment(comments.length, req.body.text, users[req.session.user_id].name);
     comments.push(newComment);
 

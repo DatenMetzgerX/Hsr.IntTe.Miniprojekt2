@@ -1,10 +1,12 @@
 define([
   'layout-view',
-  'hbs!templates/root'
-], function(LayoutView, rootTemplate) {
+  'hbs!templates/root',
+  'views/reddit/header'
+], function(LayoutView, rootTemplate, HeaderView) {
   var RootView = LayoutView.extend({
     name: 'root',
-    template: rootTemplate
+    template: rootTemplate,
+    headerView: HeaderView
   });
 
   var instance;

@@ -2,4 +2,8 @@
 
 {{#collection}}
   <a href="{{./url}}" target="_blank">{{title}} - {{author}}</a>
+
+  {{#collection comments}}
+    {{text}}
+  {{/collection}}
 {{/collection}}

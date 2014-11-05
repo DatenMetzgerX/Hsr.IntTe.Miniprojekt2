@@ -45,7 +45,7 @@ module.exports = function(grunt) {
       dist: 'dist',
       tmp: 'tmp',
       distOutput: {
-        js: 'dist/main.js',
+        js: 'dist/main.js'
       },
       output: {
         js: 'public/js',
