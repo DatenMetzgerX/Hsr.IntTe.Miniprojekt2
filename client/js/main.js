@@ -6,6 +6,12 @@ require([
   'helpers'
 ], function ($, Backbone, RootView, RedditRouter) {
   $(function() {
+    $.ajaxSetup({
+        xhrFields: {
+          withCredentials: true
+        }
+    });
+
     Backbone.history.start({
       pushState: false,
       root: '/',

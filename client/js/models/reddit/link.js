@@ -9,7 +9,8 @@ define(['model', 'collections/reddit/comments'], function (Model, CommentsCollec
         url: null,
         createTime: new Date(),
         rating: null,
-        comments: new CommentsCollection()
+        comments: new CommentsCollection(),
+        votes: 0
       }
     },
 
@@ -19,6 +20,9 @@ define(['model', 'collections/reddit/comments'], function (Model, CommentsCollec
       var comments = this.get("comments") || new CommentsCollection();
       comments.reset(result.comments, { parse: true });
       result.comments = comments;
+
+      result.votes = result.rating.value;
+      delete result.rating;
 
       return result;
     }

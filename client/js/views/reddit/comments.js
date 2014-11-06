@@ -1,8 +1,9 @@
 define([
   'collection-view',
   'hbs!templates/reddit/comments-item',
-  'hbs!templates/reddit/comments-empty'
-], function (CollectionView, itemTemplate, emptyTemplate) {
+  'hbs!templates/reddit/comments-empty',
+  'views/reddit/vote'
+], function (CollectionView, itemTemplate, emptyTemplate, VoteView) {
   return CollectionView.extend({
     name: 'reddit/comments',
     itemTemplate: itemTemplate,
@@ -10,14 +11,10 @@ define([
     tagName: 'ul',
     className: 'media-list',
 
-    initialize: function () {
-      console.log("initilaize");
-    },
-
-    events: {
-      rendered: function () {
-        console.log("Rendered: " + this.collection);
-      }
+    itemContext: function (comment) {
+      return _.extend({
+        voteView: new VoteView({ model: comment })
+      }, comment.attributes);
     }
   });
 });

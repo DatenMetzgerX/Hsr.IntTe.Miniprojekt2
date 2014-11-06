@@ -6,9 +6,10 @@ var http = require('http');
 var io = require('socket.io');
 
 var allowCrossDomain = function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Origin', 'http://localhost:8000');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
+    res.header('Access-Control-Allow-Credentials', 'true');
     next();
 };
 
@@ -34,6 +35,8 @@ var comments = [];
 
 //sample data
 entries.push(new Link(entries.length, "Title", "Author", "http://www.google.ch"));
+entries.push(new Link(entries.length, "9gag", "Micha Reiser", "http://www.9gag.com"));
+entries.push(new Link(entries.length, "hsr", "Micha Reiser", "http://www.hsr.ch"));
 var comment = new Comment(0, "TestComment", "Author");
 comments.push(comment);
 entries[0].comments.push(comment);
@@ -146,7 +149,7 @@ app.post('/entries/:id/comment', checkAuth, function (req, res) {
     io.sockets.emit('message', { action: "AddComment" });
 });
 
-app.post('/comment/:id/', checkAuth, function (req, res) {
+app.post('/comments/:id/', checkAuth, function (req, res) {
     var newComment = new Comment(comments.length, req.body.text, users[req.session.user_id].name);
     comments.push(newComment);
 
@@ -156,12 +159,12 @@ app.post('/comment/:id/', checkAuth, function (req, res) {
     io.sockets.emit('message', { action: "AddComment" });
 });
 
-app.post('/comment/:id/up', checkAuth, function (req, res) {
+app.post('/comments/:id/up', checkAuth, function (req, res) {
     res.json(comments[req.params.id].rating._up(req.session.user_id));
     io.sockets.emit('message', { action: "Rated" });
 });
 
-app.post('/comment/:id/down', checkAuth, function (req, res) {
+app.post('/comments/:id/down', checkAuth, function (req, res) {
     res.json(comments[req.params.id].rating._down(req.session.user_id));
     io.sockets.emit('message', { action: "Rated" });
 });

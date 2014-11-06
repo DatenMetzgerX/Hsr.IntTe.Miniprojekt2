@@ -19,13 +19,16 @@ define([
     },
 
     submit: function (event) {
-      this.serialize(event, function (attributes, release) {
+      event.preventDefault();
+
+      this.serialize(function (attributes, release) {
         var self = this;
         var user = new User(_.omit(attributes, "password2"));
+
         user.save({}, {
           success: function () {
-            self.trigger("user:registered", user);
             release();
+            self.trigger("user:registered", user);
           },
 
           error: function (model, response) {

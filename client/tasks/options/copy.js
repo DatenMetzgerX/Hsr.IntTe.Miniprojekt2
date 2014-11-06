@@ -28,6 +28,12 @@ module.exports = {
         cwd: grunt.config('paths.css'),
         src: '*.css',
         dest: grunt.config('paths.output.css')
+      },
+      {
+        expand: true,
+        cwd: 'bower_components/bootstrap/fonts',
+        src: '*',
+        dest: grunt.config('paths.output.fonts')
       }
     ]
   }
