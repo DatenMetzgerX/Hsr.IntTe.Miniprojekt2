@@ -4,13 +4,15 @@ define([
   'collections/reddit/links',
   'services/UserService',
   'views/reddit/links',
-  'views/reddit/register'
-], function (Backbone, RootView, Links, userService, LinksView, RegisterView) {
+  'views/reddit/register',
+  'views/reddit/submitlink'
+], function (Backbone, RootView, Links, userService, LinksView, RegisterView, SubmitlinkView) {
   return Backbone.Router.extend({
     routes: {
       "": "index",
       "register": "register",
-      "logout": "logout"
+      "logout": "logout",
+      "submitlink": "submitlink"
     },
 
     index: function () {
@@ -32,6 +34,12 @@ define([
     logout: function () {
       userService.logout().done();
       Backbone.history.navigate("", { replace: true });
+    },
+
+    submitlink: function (){
+      var view = new SubmitlinkView();
+
+      RootView.getInstance().setView(view);
     }
   });
 });

@@ -12,6 +12,7 @@
 	<div id="navbar" class="navbar-collapse collapse">
       {{#if loggedIn}}
         {{#link "logout" class="btn btn-default navbar-btn navbar-right"}}Logout{{/link}}
+        {{#link "submitlink" class="btn btn-success navbar-btn navbar-left"}}Submit Link{{/link}}
       {{else}}
         {{#link "register" class="btn btn-default navbar-btn navbar-right" style="margin-left: 5px"}}Register{{/link}}
         {{view loginView}}
