@@ -1,8 +1,9 @@
 define([
   'view',
   'hbs!templates/reddit/submitlink',
-  'models/reddit/user'
-], function (View, template, User) {
+  'models/reddit/link',
+  'services/UserService'
+], function (View, template, Link, userService) {
   return View.extend({
     name: 'reddit/submitlink',
     template: template,
@@ -14,7 +15,28 @@ define([
     },
 
     submit: function (event) {
-      alert("not implemented yet");
+      event.preventDefault();
+
+      this.serialize(function (attributes, release) {
+        var self = this;
+        var link = new Link({
+          author: userService.getUser().get("name"),
+          title: attributes.title,
+          url: attributes.url
+        });
+
+        link.save({}, {
+          success: function () {
+            release();
+            self.trigger("link:submitted", link);
+          },
+
+          error: function () {
+            release();
+            alert('Link not submitted error');
+          }
+        });
+      });
     }
   });
 });

@@ -38,7 +38,9 @@ define([
 
     submitlink: function (){
       var view = new SubmitlinkView();
-
+      this.listenTo(view, 'link:submitted', function () {
+        Backbone.history.navigate("", true);
+      });
       RootView.getInstance().setView(view);
     }
   });
