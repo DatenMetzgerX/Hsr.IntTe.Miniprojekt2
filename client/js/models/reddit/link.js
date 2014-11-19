@@ -1,7 +1,7 @@
 define(['model', 'collections/reddit/comments'], function (Model, CommentsCollection) {
   return Model.extend({
     name: 'reddit/link',
-    url: 'http://localhost:8888/entries',
+    urlRoot: 'http://localhost:8888/entries',
 
     defaults: function () {
       return {
