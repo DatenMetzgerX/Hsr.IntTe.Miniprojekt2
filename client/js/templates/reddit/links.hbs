@@ -5,7 +5,10 @@
 		</div>
 		<div class="media-body">
 			<h4 class="media-heading"><a href="{{./url}}" target="_blank">{{title}}</a></h4>
-        {{view commentsView}}
+      {{#if loggedIn}}
+        <input type="text"/>
+      {{/if}}
+      {{view commentsView}}
 		</div>
 	</li>
 {{/collection}}
