@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="handlebars.js" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/client/bower_components/handlebars/handlebars.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/client/bower_components/handlebars/handlebars.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

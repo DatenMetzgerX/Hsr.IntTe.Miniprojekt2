@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="Thorax" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/client/bower_components/thorax/thorax.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/client/bower_components/thorax/thorax.min.js" />
+      <root url="file://$PROJECT_DIR$/client/bower_components/thorax/thorax.js" />
+    </CLASSES>
+    <DOCUMENTATION>
+      <root url="https://github.com/walmartlabs/thorax" />
+    </DOCUMENTATION>
+    <SOURCES />
+  </library>
+</component>

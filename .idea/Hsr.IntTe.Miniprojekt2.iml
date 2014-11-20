@@ -2,10 +2,17 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/client/bower_components" />
       <excludeFolder url="file://$MODULE_DIR$/client/node_modules" />
       <excludeFolder url="file://$MODULE_DIR$/client/public" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Backbone" level="project" />
+    <orderEntry type="library" name="Underscore" level="project" />
+    <orderEntry type="library" name="jquery" level="project" />
+    <orderEntry type="library" name="handlebars.js" level="project" />
+    <orderEntry type="library" name="Thorax" level="project" />
+    <orderEntry type="library" name="q.js" level="project" />
   </component>
 </module>

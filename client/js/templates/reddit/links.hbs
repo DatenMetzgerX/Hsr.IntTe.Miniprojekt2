@@ -5,15 +5,15 @@
 		</div>
 		<div class="media-body">
 			<h4 class="media-heading"><a href="{{./url}}" target="_blank">{{title}}</a></h4>
-      <button type="button" class="btn btn-default btn-xs">
-        {{comments.lenth}} comments <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
-      </button>
+      {{#button "expandComments" tagName="a"}}
+        {{comments.length}} comments <span class="glyphicon {{#if showComments}}glyphicon-chevron-up{{else}}glyphicon-chevron-down{{/if}}" aria-hidden="true"></span>
+      {{/button}}
       <div>
-        {{#if loggedIn}}
-          <input type="text"/>
-          {{#link "comment"}}Comment{{/link}}
+        {{#if showComments}}
+          {{view commentsView}}
         {{/if}}
-        {{view commentsView}}
+
+        {{view commentView}}
       </div>
 		</div>
 	</li>
