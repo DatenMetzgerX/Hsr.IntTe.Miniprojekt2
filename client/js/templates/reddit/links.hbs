@@ -5,10 +5,16 @@
 		</div>
 		<div class="media-body">
 			<h4 class="media-heading"><a href="{{./url}}" target="_blank">{{title}}</a></h4>
-      {{#if loggedIn}}
-        <input type="text"/>
-      {{/if}}
-      {{view commentsView}}
+      <button type="button" class="btn btn-default btn-xs">
+        {{comments.lenth}} comments <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+      </button>
+      <div>
+        {{#if loggedIn}}
+          <input type="text"/>
+          {{#link "comment"}}Comment{{/link}}
+        {{/if}}
+        {{view commentsView}}
+      </div>
 		</div>
 	</li>
 {{/collection}}

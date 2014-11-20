@@ -1,12 +1,6 @@
-define([
-  'model',
-  'hbs!templates/reddit/links',
-  'collections/reddit/comments',
-  'services/eventBus'
-], function (Model, template, CommentsCollection, eventBus) {
+define(['model', 'collections/reddit/comments'], function (Model, CommentsCollection) {
   return Model.extend({
     name: 'reddit/link',
-    template: template,
     urlRoot: 'http://localhost:8888/entries',
 
     defaults: function () {
@@ -19,11 +13,6 @@ define([
         comments: new CommentsCollection(),
         votes: 0
       }
-    },
-
-    initialize: function () {
-      this.listenTo(eventBus, 'user:loggedIn', this.conditionalRender);
-      this.listenTo(eventBus, 'user:loggedOut', this.conditionalRender);
     },
 
     parse: function (response) {
