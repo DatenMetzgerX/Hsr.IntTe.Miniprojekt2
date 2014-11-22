@@ -18,7 +18,11 @@ define(['model', 'collections/reddit/comments'], function (Model, CommentsCollec
     parse: function (response) {
       var result = Model.prototype.parse.apply(this, arguments);
 
-      var comments = this.get("comments") || new CommentsCollection();
+      var comments = this.get("comments");
+      if (!comments) {
+        comments = new CommentsCollection();
+        comments.link = this;
+      }
       comments.reset(result.comments, { parse: true });
       result.comments = comments;
 
