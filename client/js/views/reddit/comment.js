@@ -29,12 +29,11 @@ define([
 
       this.serialize(function (attributes, release) {
         this.model.get("comments").create({
-          text: "blalba"
-
+          text: attributes.comment,
+          author: UserService.getUser().get("name")
         }, {
           success: function () {
             release();
-            alert('success');
           },
 
           error: function () {
@@ -42,7 +41,7 @@ define([
             alert('Comment not submitted error');
           }
         });
-      });
+      }, {set:false});
     }
   });
 });
