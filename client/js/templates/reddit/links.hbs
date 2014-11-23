@@ -6,7 +6,7 @@
 
 		<div class="media-body">
 			<h4 class="media-heading"><a href="{{./url}}" target="_blank">{{title}}</a></h4>
-
+      <p class="media-heading">submitted {{createTime}} ago by {{author}}</p>
       {{#button "expandComments" tagName="a" style="cursor: pointer"}}
         {{comments.length}} comments <span class="glyphicon {{#if showComments}}glyphicon-chevron-up{{else}}glyphicon-chevron-down{{/if}}" aria-hidden="true"></span>
       {{/button}}
