@@ -19,7 +19,8 @@
     "jquery": "1.9.0",
     "bootstrap": "3.2",
     "backbone.localStorage": "1.1.7",
-    "q": "1"
+    "q": "1",
+    "momentjs": "~2.8.4"
   },
   "resolutions": {
     "underscore": "1.6.0"
