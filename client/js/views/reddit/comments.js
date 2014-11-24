@@ -13,7 +13,8 @@ define([
 
     itemContext: function (comment) {
       return _.extend({
-        voteView: new VoteView({ model: comment })
+        voteView: new VoteView({ model: comment }),
+        posted: comment.attributes.createTime - new Date()
       }, comment.attributes);
     }
   });
