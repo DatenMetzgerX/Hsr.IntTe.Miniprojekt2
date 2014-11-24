@@ -3,8 +3,9 @@ define([
   'hbs!templates/reddit/links',
   'views/reddit/comments',
   'views/reddit/vote',
-  'views/reddit/comment'
-], function (View, template, CommentsView, VoteView, CommentView) {
+  'views/reddit/comment',
+  'moment'
+], function (View, template, CommentsView, VoteView, CommentView, moment) {
   return View.extend({
     name: 'reddit/links',
     template: template,
@@ -13,7 +14,8 @@ define([
       return _.extend({
         commentsView: new CommentsView({ collection: link.get("comments") }),
         commentView: new CommentView({ model: link }),
-        voteView: new VoteView({ model: link })
+        voteView: new VoteView({ model: link }),
+        posted: moment(link.attributes.createTime).startOf().fromNow()
       }, link.attributes);
     },
 
